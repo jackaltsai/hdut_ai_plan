@@ -51,7 +51,8 @@ const handleEventClick = (eventId: string | number) => {
 <style scoped>
 /* 頁面容器樣式 */
 .page-container {
-  min-height: 2000vh;           /* 最小高度為視窗高度 */
+  min-height: 100vh;           /* 最小高度為視窗高度 */
+  height: 120vh;               /* 固定高度為視窗高度 */
   background: transparent;      /* 透明背景，顯示父層背景圖 */
   color: #e0e0e0;              /* 淺灰色文字 */
   position: relative;           /* 相對定位 */
@@ -90,7 +91,7 @@ const handleEventClick = (eventId: string | number) => {
 
 /* 主要內容區樣式 */
 .page-main {
-  padding: 3rem 2rem;    /* 上下3rem，左右2rem間距 */
+  padding: 3rem 10rem;    /* 上下3rem，左右2rem間距 */
   max-width: 1800px;     /* 最大寬度1800px */
   margin: 0 auto;        /* 水平置中 */
 }
