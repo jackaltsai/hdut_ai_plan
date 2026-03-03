@@ -162,4 +162,128 @@ const handleEventClick = (eventId: string | number) => {
   color: #000000;              /* 淺灰色文字 */
   text-align: left;           /* 文字置中 */
 }
+
+/* ==================== 響應式設計 (RWD) ==================== */
+
+/* 平板裝置 (最大寬度 1024px) */
+@media (max-width: 1024px) {
+  .page-header {
+    padding: 2rem 1.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .page-main {
+    padding: 2rem 5rem;
+  }
+
+  .footer-text {
+    font-size: 1.5rem;
+  }
+
+  .footer-logo {
+    height: 70px;
+  }
+}
+
+/* 小型平板裝置 (最大寬度 768px) */
+@media (max-width: 768px) {
+  .page-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .page-main {
+    padding: 2rem 2rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-item {
+    width: 100%;
+  }
+
+  .footer-text {
+    font-size: 1.25rem;
+  }
+
+  .footer-logo {
+    height: 60px;
+  }
+}
+
+/* 手機裝置 (最大寬度 480px) */
+@media (max-width: 480px) {
+  .page-container {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .page-header {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
+
+  .page-main {
+    padding: 1.5rem 1rem;
+  }
+
+  .page-footer {
+    position: relative;
+    padding: 1.5rem 1rem;
+  }
+
+  .footer-content {
+    gap: 1.25rem;
+  }
+
+  .footer-text {
+    font-size: 1rem;
+  }
+
+  .footer-logo {
+    height: 50px;
+  }
+}
+
+/* 超小型手機裝置 (最大寬度 360px) */
+@media (max-width: 360px) {
+  .page-header {
+    padding: 1rem 0.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 1rem;
+  }
+
+  .page-main {
+    padding: 1rem 0.5rem;
+  }
+
+  .page-footer {
+    padding: 1.25rem 0.5rem;
+  }
+
+  .footer-text {
+    font-size: 0.875rem;
+  }
+
+  .footer-logo {
+    height: 40px;
+  }
+}
 </style>
