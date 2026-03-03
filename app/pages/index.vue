@@ -45,6 +45,26 @@ const handleEventClick = (eventId: string | number) => {
         @event-click="handleEventClick"
       />
     </main>
+
+    <!-- 頁尾區塊 -->
+    <footer class="page-footer">
+      <div class="footer-content">
+        <!-- 左側 Logo：教育部技職司 -->
+        <div class="footer-item">
+          <img src="/img/logo_moe.png" alt="教育部技職司" class="footer-logo">
+        </div>
+        <div class="footer-item">
+          <p class="footer-text">教育部技職司</p>
+        </div>
+        <!-- 右側 Logo：宏國德霖 -->
+        <div class="footer-item">
+          <img src="/img/hdut_logo.png" alt="宏國德霖科技大學餐旅學院" class="footer-logo">
+        </div>
+        <div class="footer-item">
+          <p class="footer-text">宏國德霖科技大學餐旅學院</p>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -52,17 +72,18 @@ const handleEventClick = (eventId: string | number) => {
 /* 頁面容器樣式 */
 .page-container {
   min-height: 100vh;           /* 最小高度為視窗高度 */
-  height: 120vh;               /* 固定高度為視窗高度 */
+  height: 160vh;               /* 固定高度為視窗高度 */
   background: transparent;      /* 透明背景，顯示父層背景圖 */
   color: #e0e0e0;              /* 淺灰色文字 */
   position: relative;           /* 相對定位 */
+  font-family: 'DFKai-SB', 'KaiTi', '標楷體', serif;  /* 標楷體字型 */
 }
 
 /* 頁首樣式 */
 .page-header {
   padding: 2.5rem 2rem;                                /* 上下2.5rem，左右2rem間距 */
   text-align: center;                                   /* 文字置中 */
-  background: rgba(255, 255, 255, 0.1);                  /* 半透明深色背景 */
+  background: rgba(255, 255, 255);                  /* 半透明深色背景 */
   backdrop-filter: blur(20px);                         /* 背景模糊效果 */
   border-bottom: 2px solid rgba(102, 126, 234, 0.2);   /* 底部紫藍色半透明邊框 */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);          /* 陰影效果 */
@@ -94,5 +115,51 @@ const handleEventClick = (eventId: string | number) => {
   padding: 3rem 10rem;    /* 上下3rem，左右2rem間距 */
   max-width: 1800px;     /* 最大寬度1800px */
   margin: 0 auto;        /* 水平置中 */
+}
+
+/* 頁尾樣式 */
+.page-footer {
+  padding: 2rem;                                      /* 內邊距2rem */
+  background: rgb(255, 255, 255);                /* 半透明背景 */
+  backdrop-filter: blur(20px);                         /* 背景模糊效果 */
+  border-top: 2px solid rgba(102, 126, 234, 0.2);     /* 頂部紫藍色半透明邊框 */
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);        /* 向上陰影效果 */
+  position: absolute;                                   /* 絕對定位 */
+  bottom: 0;                                           /* 固定在底部 */
+  left: 0;                                             /* 左側對齊 */
+  right: 0;                                            /* 右側對齊 */
+}
+
+/* 頁尾內容容器 */
+.footer-content {
+  display: flex;                   /* 彈性盒布局 */
+  justify-content: center;  /* 左右分散對齊 */
+  align-items: center;             /* 垂直置中 */
+  max-width: 1800px;              /* 最大寬度 */
+  margin: 0 auto;                 /* 水平置中 */
+}
+
+/* 頁尾項目 */
+.footer-item {
+  display: flex;           /* 彈性盒布局 */
+  flex-direction: column;  /* 垂直排列 */
+  align-items: center;     /* 水平置中 */
+  gap: 0.5rem;            /* 間距0.5rem */
+}
+
+/* 頁尾 Logo */
+.footer-logo {
+  height: 80px;                        /* 高度80px */
+  width: auto;                         /* 寬度自動 */
+  object-fit: contain;                 /* 保持比例 */
+}
+
+/* 頁尾文字 */
+.footer-text {
+  margin: 0;                    /* 無外邊距 */
+  font-size: 2rem;              /* 字體大小1rem */
+  font-weight: 600;             /* 半粗體 */
+  color: #000000;              /* 淺灰色文字 */
+  text-align: left;           /* 文字置中 */
 }
 </style>
