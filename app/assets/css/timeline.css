@@ -1,0 +1,269 @@
+/**
+ * Timeline Component Dark Theme
+ * Global styles and CSS variables
+ */
+
+:root {
+  /* Dark theme colors */
+  --timeline-bg-primary: #0a0a0a;
+  --timeline-bg-secondary: #1a1a1a;
+  --timeline-border: #2a2a2a;
+  --timeline-text-primary: #e0e0e0;
+  --timeline-text-secondary: #999;
+  --timeline-text-muted: #666;
+
+  /* Brand colors */
+  --timeline-accent-start: #667eea;
+  --timeline-accent-end: #764ba2;
+
+  /* Component dimensions */
+  --timeline-card-width: 280px;
+  --timeline-card-width-mobile: 240px;
+  --timeline-track-height: 4px;
+  --timeline-connector-height: 40px;
+
+  /* Spacing */
+  --timeline-padding: 1rem;
+  --timeline-gap: 0.5rem;
+
+  /* Border radius */
+  --timeline-radius-sm: 4px;
+  --timeline-radius-md: 8px;
+  --timeline-radius-lg: 12px;
+
+  /* Transitions */
+  --timeline-transition-fast: 0.2s ease;
+  --timeline-transition-smooth: 0.3s ease;
+}
+
+/* Global timeline styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments for tablet */
+@media (max-width: 1024px) {
+  :root {
+    --timeline-card-width: 260px;
+    --timeline-padding: 0.75rem;
+  }
+
+  .timeline-container {
+    height: 500px !important;
+  }
+
+  .timeline-event-card {
+    width: 260px !important;
+  }
+
+  .event-wrapper.is-above {
+    transform: translateY(-30px) !important;
+  }
+
+  .event-wrapper:not(.is-above) {
+    transform: translateY(30px) !important;
+  }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  :root {
+    --timeline-card-width: var(--timeline-card-width-mobile);
+    --timeline-connector-height: 30px;
+    --timeline-padding: 0.5rem;
+  }
+
+  .timeline-container {
+    height: 450px !important;
+    border-radius: var(--timeline-radius-md) !important;
+  }
+
+  .timeline-event-card {
+    width: var(--timeline-card-width-mobile) !important;
+  }
+
+  .event-wrapper.is-above {
+    transform: translateY(-20px) !important;
+  }
+
+  .event-wrapper:not(.is-above) {
+    transform: translateY(20px) !important;
+  }
+
+  .event-connector {
+    height: 30px !important;
+  }
+
+  .card-content {
+    padding: 0.75rem !important;
+  }
+
+  .event-image {
+    height: 120px !important;
+  }
+
+  .event-title {
+    font-size: 1rem !important;
+  }
+
+  .event-description {
+    font-size: 0.8125rem !important;
+  }
+
+  .timeline-controls {
+    top: 0.5rem !important;
+    right: 0.5rem !important;
+  }
+
+  .controls-group {
+    padding: 0.375rem !important;
+  }
+
+  .control-btn {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .control-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .zoom-level {
+    font-size: 0.8125rem !important;
+    min-width: 45px !important;
+  }
+
+  .timeline-instructions {
+    display: none;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .timeline-event-card {
+    transition: none !important;
+  }
+
+  .timeline-event-card:hover {
+    transform: none !important;
+  }
+
+  .timeline-event-card:active {
+    transform: scale(0.98);
+  }
+
+  .control-btn:hover:not(:disabled) {
+    transform: none !important;
+  }
+
+  .control-btn:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --timeline-border: #ffffff;
+    --timeline-text-primary: #ffffff;
+  }
+
+  .timeline-event-card .card-content {
+    border-width: 2px !important;
+  }
+
+  .timeline-track {
+    box-shadow: none !important;
+  }
+}
+
+/* Dark mode (explicit) */
+@media (prefers-color-scheme: dark) {
+  /* Already using dark theme by default */
+}
+
+/* Print styles */
+@media print {
+  .timeline-controls,
+  .timeline-instructions {
+    display: none !important;
+  }
+
+  .timeline-container {
+    border: 1px solid #000 !important;
+    background: #fff !important;
+  }
+
+  .timeline-event-card .card-content {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+  }
+
+  .event-title,
+  .event-description {
+    color: #000 !important;
+  }
+}
+
+/* Loading state */
+.timeline-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--timeline-text-muted);
+}
+
+/* Empty state */
+.timeline-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--timeline-text-muted);
+  gap: 1rem;
+}
+
+.timeline-empty svg {
+  width: 64px;
+  height: 64px;
+  opacity: 0.3;
+}
+
+/* Utility classes */
+.timeline-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus visible styles for keyboard navigation */
+.timeline-event-card:focus-visible {
+  outline: 2px solid var(--timeline-accent-start);
+  outline-offset: 2px;
+}
+
+.control-btn:focus-visible {
+  outline: 2px solid var(--timeline-accent-start);
+  outline-offset: 2px;
+}
