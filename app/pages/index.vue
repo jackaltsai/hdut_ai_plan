@@ -85,6 +85,19 @@ const closeModal = () => {
       </div>
     </Transition>
 
+    <section class="dashboard-section">
+  <h2 class="dashboard-title">量化指標儀表板</h2>
+
+  <div class="dashboard-grid">
+    <div class="dashboard-card" v-for="n in 9" :key="n">
+      <div class="chart-placeholder">
+        <img :src="`/img/d${n}.png`  " alt="圖表佔位符" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+    </div>
+  </div>
+</section>
+
+
     <!-- 頁尾區塊 -->
     <footer class="page-footer">
       <div class="footer-content">
@@ -105,16 +118,74 @@ const closeModal = () => {
       </div>
     </footer>
   </div>
+
+
+
+
 </template>
 
 <style scoped>
+
+/* ==================== 九宮格圖表區 ==================== */
+
+.dashboard-section {
+  padding: 4rem 2rem;
+  padding-bottom: 22rem; /* 頁尾高度 + 額外間距 */
+  background: linear-gradient(180deg, rgba(253, 253, 253, 0.8), rgba(255, 255, 255, 0.9));
+  backdrop-filter: blur(10px);
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00f5ff, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.dashboard-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  min-height: 260px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0, 245, 255, 0.2);
+}
+
+.chart-placeholder {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 1.25rem;
+}
+
+
 /* 頁面容器樣式 */
 .page-container {
   min-height: 100vh;           /* 最小高度為視窗高度 */
-  height: 160vh;               /* 固定高度為視窗高度 */
+
+  flex-direction: column;
   background: transparent;      /* 透明背景，顯示父層背景圖 */
   color: #e0e0e0;              /* 淺灰色文字 */
-  position: relative;           /* 相對定位 */
+  position: relative;         /* 相對定位 */
   font-family: 'DFKai-SB', 'KaiTi', '標楷體', serif;  /* 標楷體字型 */
 }
 
@@ -122,7 +193,7 @@ const closeModal = () => {
 .page-header {
   padding: 2.5rem 2rem;                                /* 上下2.5rem，左右2rem間距 */
   text-align: center;                                   /* 文字置中 */
-  background: rgba(255, 255, 255);                  /* 半透明深色背景 */
+  background: rgba(255, 255, 255, 0.8);                  /* 半透明深色背景 */
   backdrop-filter: blur(20px);                         /* 背景模糊效果 */
   border-bottom: 2px solid rgba(102, 126, 234, 0.2);   /* 底部紫藍色半透明邊框 */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);          /* 陰影效果 */
@@ -305,6 +376,10 @@ const closeModal = () => {
 
 /* 平板裝置 (最大寬度 1024px) */
 @media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .page-header {
     padding: 2rem 1.5rem;
   }
@@ -378,6 +453,13 @@ const closeModal = () => {
     font-size: 1.125rem;
   }
 }
+
+@media (max-width: 600px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* 手機裝置 (最大寬度 480px) */
 @media (max-width: 480px) {
