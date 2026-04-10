@@ -306,9 +306,9 @@ onMounted(() => {
 .event-category {
   display: inline-block;
   font-size: 0.625rem;
-  color: #764ba2;
+  color: #ffffff;
   background: rgba(118, 75, 162, 0.1);
-  border: 1px solid rgba(118, 75, 162, 0.3);
+  border: 1px solid rgba(134, 178, 240, 0.3);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   margin-bottom: 0.5rem;

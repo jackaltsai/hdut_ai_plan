@@ -86,6 +86,32 @@ export const sampleEvents: TimelineEvent[] = [
         caption: '生成式AI師資精進課程教材設計工作坊'
       }
     ]
+  },{
+    id: 7,
+    title: 'AI融入食品加工技術介紹',
+    date: new Date('2026-04-14'),
+    category: '業師協同教學',
+    description: '',
+    images: [
+      {
+        url: '/img/0414.png',
+        alt: 'AI融入食品加工技術介紹',
+        caption: 'AI融入食品加工技術介紹'
+      }
+    ]
+  },{
+    id: 8,
+    title: 'AI食品科技與AI應用實例',
+    date: new Date('2026-04-21'),
+    category: '業師協同教學',
+    description: '',
+    images: [
+      {
+        url: '/img/0421.png',
+        alt: 'AI食品科技與AI應用實例',
+        caption: 'AI食品科技與AI應用實例'
+      }
+    ]
   }
 
 
